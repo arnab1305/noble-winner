@@ -1,0 +1,14 @@
+<div class="d-flex">
+  <ng-container *ngFor="let item of multiWinnera">
+    <div class="card" style="width: 18rem;">
+      <img src="assets/{{item.surname}}.PNG" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{item.id}}</h5>
+        <p class="card-text">{{item.firstname}} {{item.surname}}</p>
+      </div>
+      <ul *ngFor="let itemset of item.category">
+        <li class="list-group-item">{{itemset}}</li>
+      </ul>
+    </div>
+  </ng-container>
+</div>

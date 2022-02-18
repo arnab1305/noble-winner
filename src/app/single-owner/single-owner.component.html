@@ -1,0 +1,57 @@
+<div class="d-flex justify-content-start filter">
+  <div >
+    <div ngbDropdown class="d-inline-block">
+      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Year</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1" >
+        <button ngbDropdownItem *ngFor="let item of totalYears" (click)="selectedYear = item">{{item}}</button>
+      </div>
+    </div>
+  </div>
+  <div >
+    <div ngbDropdown class="d-inline-block">
+      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Category</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1" >
+        <button ngbDropdownItem *ngFor="let item of totalCategory" (click)="selectedCategory = item">{{item}}</button>
+      </div>
+    </div>
+  </div>
+  <div class="text-area">
+    <span [hidden]="selectedYear.length!=0||selectedCategory.length!=0">Selected Filter</span>
+    <span>{{selectedYear}}</span>
+    <span>{{selectedCategory}}</span>
+  </div>
+  <button type="button" class="btn btn-primary" (click)="getFilteredData(selectedYear,selectedCategory)">Apply</button>
+  <button type="button" class="btn btn-primary" (click)="clear()">Clear</button>
+</div>
+<!-- DATA TABLE -->
+<table class="table table-dark">
+
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Motivation</th>
+        <th scope="col">Share</th>
+        <th scope="col">Year</th>
+        <th scope="col">Category</th>
+      </tr>
+    </thead>
+
+
+    <tbody>
+      <ng-container *ngFor="let item of winnerDateFiltered.prizes , let index = index">
+        <tr *ngFor="let itemset of item.laureates">
+          <td>{{itemset.id}}</td>
+          <td>{{itemset.firstname}}</td>
+          <td>{{itemset.surname}}</td>
+          <td>{{itemset.motivation}}</td>
+          <td>{{itemset.share}}</td>
+          <td>{{item.year}}</td>
+          <td>{{item.category}}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+
+</table>
+
