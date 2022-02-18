@@ -22,7 +22,7 @@ export class SingleOwnerComponent implements OnInit {
 
 
   getData(){
-    const url ='http://api.nobelprize.org/v1/prize.json'
+    const url ='https://api.nobelprize.org/v1/prize.json'
     this.http.get(url).subscribe((res)=>{
       this.winnerData = res
       console.log(this.winnerData)
@@ -30,7 +30,7 @@ export class SingleOwnerComponent implements OnInit {
     })
   }
   getFilteredData(year:string,category:string){
-    const url ='http://api.nobelprize.org/v1/prize.json'
+    const url ='https://api.nobelprize.org/v1/prize.json'
     this.http.get(url+"?year="+year+"&category="+category).subscribe((res)=>{
       this.winnerData = res
       console.log(this.winnerData)
@@ -60,7 +60,7 @@ export class SingleOwnerComponent implements OnInit {
   }
   getTotalCategory(){
 
-    const url ='http://api.nobelprize.org/v1/prize.json'
+    const url ='https://api.nobelprize.org/v1/prize.json'
     this.http.get(url).subscribe((res)=>{
       this.winnerData = res
       let categoryBuffer = ''

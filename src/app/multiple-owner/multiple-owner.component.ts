@@ -46,7 +46,7 @@ export class MultipleOwnerComponent implements OnInit {
   constructor(private http : HttpClient ) { }
 
   async getData(){
-    const url ='http://api.nobelprize.org/v1/prize.json'
+    const url ='https://api.nobelprize.org/v1/prize.json'
     this.http.get(url).subscribe((res)=>{
       this.winnerData = res;
 
